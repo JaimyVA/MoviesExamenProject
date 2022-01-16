@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -52,6 +53,11 @@ public class FirstFragment extends Fragment {
             public void onChanged(ArrayList<NewReleases> newReleases) {
                 Log.d("TEST", newReleases.toString());
                 NewReleasesAdapter mAdapter = new NewReleasesAdapter(newReleases);
+                //Line dividers item decoration
+                DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvMovies.getContext(),
+                        mLayoutManager.getOrientation());
+                rvMovies.addItemDecoration(dividerItemDecoration);
+
                 rvMovies.setAdapter(mAdapter);
             }
         });
