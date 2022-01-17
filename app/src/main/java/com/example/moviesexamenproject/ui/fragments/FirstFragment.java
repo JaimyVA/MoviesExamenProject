@@ -1,5 +1,6 @@
 package com.example.moviesexamenproject.ui.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -42,6 +44,7 @@ public class FirstFragment extends Fragment {
 
     }
 
+
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -50,12 +53,11 @@ public class FirstFragment extends Fragment {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         rvMovies.setLayoutManager(mLayoutManager);
 
-
         NewReleasesViewModel newReleasesViewModel = new ViewModelProvider(getActivity()).get(NewReleasesViewModel.class);
+
         newReleasesViewModel.getNewReleases().observe(getViewLifecycleOwner(), new Observer<ArrayList<NewReleases>>() {
             @Override
             public void onChanged(ArrayList<NewReleases> newReleases) {
-                Log.d("TEST", newReleases.toString());
                 NewReleasesAdapter mAdapter = new NewReleasesAdapter(newReleases);
                 //Line dividers item decoration
                 DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvMovies.getContext(),
@@ -63,8 +65,6 @@ public class FirstFragment extends Fragment {
                 rvMovies.addItemDecoration(dividerItemDecoration);
 
                 rvMovies.setAdapter(mAdapter);
-
-
             }
         });
 

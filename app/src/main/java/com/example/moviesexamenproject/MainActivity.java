@@ -3,6 +3,7 @@ package com.example.moviesexamenproject;
 import android.os.Bundle;
 
 import com.bumptech.glide.Glide;
+import com.example.moviesexamenproject.model.NewReleases;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,9 +19,12 @@ import com.example.moviesexamenproject.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
 
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

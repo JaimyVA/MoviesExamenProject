@@ -54,12 +54,8 @@ public class SecondFragment extends Fragment {
             titleTV.setText(passedMovie.getOriginal_title());
             bodyTV.setText(passedMovie.getOverview());
 
-            RequestOptions options = new RequestOptions();
-            options.centerCrop();
-
             Glide.with(this)
                     .load("https://themoviedb.org/t/p/w500"+ passedMovie.getPoster_path())
-//                    .apply(options)
                     .into(img);
         }
     }
