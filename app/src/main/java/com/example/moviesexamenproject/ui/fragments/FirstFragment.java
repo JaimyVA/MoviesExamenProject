@@ -20,6 +20,7 @@ import com.example.moviesexamenproject.databinding.FragmentFirstBinding;
 import com.example.moviesexamenproject.model.NewReleases;
 import com.example.moviesexamenproject.model.NewReleasesViewModel;
 import com.example.moviesexamenproject.ui.util.NewReleasesAdapter;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
