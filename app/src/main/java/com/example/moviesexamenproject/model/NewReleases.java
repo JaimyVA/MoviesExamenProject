@@ -1,6 +1,8 @@
 package com.example.moviesexamenproject.model;
 
-public class NewReleases {
+import java.io.Serializable;
+
+public class NewReleases implements Serializable {
     private boolean Adult;
     private int id;
     private String poster_path;
