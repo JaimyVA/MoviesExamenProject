@@ -5,6 +5,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -15,6 +17,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.moviesexamenproject.R;
 import com.example.moviesexamenproject.databinding.FragmentFirstBinding;
 import com.example.moviesexamenproject.model.NewReleases;
@@ -60,6 +63,8 @@ public class FirstFragment extends Fragment {
                 rvMovies.addItemDecoration(dividerItemDecoration);
 
                 rvMovies.setAdapter(mAdapter);
+
+
             }
         });
 

@@ -1,6 +1,9 @@
 package com.example.moviesexamenproject.ui.util;
 
+import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,23 +16,28 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.moviesexamenproject.R;
 import com.example.moviesexamenproject.model.NewReleases;
+import com.example.moviesexamenproject.ui.fragments.FirstFragment;
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class NewReleasesAdapter extends RecyclerView.Adapter<NewReleasesAdapter.NewReleasesHolder> {
+    private Context mContext;
 
     class NewReleasesHolder extends RecyclerView.ViewHolder{
 
         private final TextView titleTV, bodyTV;
+        private ImageView img;
 
         public NewReleasesHolder(@NonNull View itemView) {
             super(itemView);
             titleTV = itemView.findViewById(R.id.tvTitle);
             bodyTV = itemView.findViewById(R.id.tvBody);
+            img = itemView.findViewById(R.id.movieImageView);
             titleTV.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -65,6 +73,13 @@ public class NewReleasesAdapter extends RecyclerView.Adapter<NewReleasesAdapter.
 
         holder.titleTV.setText(newReleases.getOriginal_title());
         holder.bodyTV.setText(newReleases.getOverview());
+
+        //img path
+        //https://themoviedb.org/t/p/w500/Poster_Path
+
+//        Glide.with(mContext)
+//                .load("https://themoviedb.org/t/p/w500"+ data.get(position).getPoster_path())
+//                .into(holder.img);
     }
 
     @Override

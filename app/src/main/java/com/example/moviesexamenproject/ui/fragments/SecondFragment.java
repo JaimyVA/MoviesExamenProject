@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,8 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.moviesexamenproject.R;
 import com.example.moviesexamenproject.databinding.FragmentSecondBinding;
 import com.example.moviesexamenproject.model.NewReleases;
@@ -46,9 +49,18 @@ public class SecondFragment extends Fragment {
         if(passedMovie != null){
             TextView titleTV = view.findViewById(R.id.tvTitle2);
             TextView bodyTV = view.findViewById(R.id.tvBody2);
+            ImageView img = view.findViewById(R.id.movieImageView2);
 
             titleTV.setText(passedMovie.getOriginal_title());
             bodyTV.setText(passedMovie.getOverview());
+
+            RequestOptions options = new RequestOptions();
+            options.centerCrop();
+
+            Glide.with(this)
+                    .load("https://themoviedb.org/t/p/w500"+ passedMovie.getPoster_path())
+//                    .apply(options)
+                    .into(img);
         }
     }
 
