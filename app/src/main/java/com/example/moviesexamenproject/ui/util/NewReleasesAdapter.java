@@ -50,7 +50,6 @@ public class NewReleasesAdapter extends RecyclerView.Adapter<NewReleasesAdapter.
                     Bundle arguments = new Bundle();
                     arguments.putSerializable("movie", movieToPass);
 
-
                     Navigation.findNavController(itemView).navigate(R.id.action_FirstFragment_to_SecondFragment, arguments);
                 }
             });
@@ -75,7 +74,6 @@ public class NewReleasesAdapter extends RecyclerView.Adapter<NewReleasesAdapter.
 
                     Bundle arguments = new Bundle();
                     arguments.putSerializable("movie", movieToPass);
-
 
                     Navigation.findNavController(itemView).navigate(R.id.action_FirstFragment_to_SecondFragment, arguments);
                 }
@@ -102,7 +100,7 @@ public class NewReleasesAdapter extends RecyclerView.Adapter<NewReleasesAdapter.
         holder.titleTV.setText(newReleases.getOriginal_title());
         holder.bodyTV.setText(newReleases.getOverview());
 
-        //img path:
+        //api img path:
         //https://themoviedb.org/t/p/w500/*Poster_Path*
         Glide.with(mContext)
                 .load("https://themoviedb.org/t/p/w500"+ data.get(position).getPoster_path())
