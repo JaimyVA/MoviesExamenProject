@@ -32,8 +32,28 @@ public class MapsFragment extends Fragment {
          */
         @Override
         public void onMapReady(GoogleMap googleMap) {
+            LatLng kinepolisAntwerpen = new LatLng(51.245908,4.416209);
+            LatLng kinepolisBraine = new LatLng(50.668609,4.378692);
+            LatLng kinepolisBrugge = new LatLng(51.179722,3.201944);
             LatLng kinepolisBrussel = new LatLng(50.8956083,4.3378853);
+            LatLng kinepolisGent = new LatLng(51.040549,3.729985);
+            LatLng kinepolisHasselt = new LatLng(50.929638,5.36883);
+            LatLng kinepolisKortrijk = new LatLng(50.805621,3.27526);
+            LatLng kinepolisLeuven = new LatLng(50.880815,4.712168);
+            LatLng kinepolisLiege = new LatLng(50.670278,5.554722);
+            LatLng kinepolisOostende = new LatLng(51.222993,2.896775);
+
+            googleMap.addMarker(new MarkerOptions().position(kinepolisAntwerpen).title("Kinepolis Antwerpen"));
+            googleMap.addMarker(new MarkerOptions().position(kinepolisBraine).title("Kinepolis Braine"));
+            googleMap.addMarker(new MarkerOptions().position(kinepolisBrugge).title("Kinepolis Brugge"));
             googleMap.addMarker(new MarkerOptions().position(kinepolisBrussel).title("Kinepolis Brussel"));
+            googleMap.addMarker(new MarkerOptions().position(kinepolisGent).title("Kinepolis Gent"));
+            googleMap.addMarker(new MarkerOptions().position(kinepolisHasselt).title("Kinepolis Hasselt"));
+            googleMap.addMarker(new MarkerOptions().position(kinepolisKortrijk).title("Kinepolis Kortrijk"));
+            googleMap.addMarker(new MarkerOptions().position(kinepolisLeuven).title("Kinepolis Leuven"));
+            googleMap.addMarker(new MarkerOptions().position(kinepolisLiege).title("Kinepolis Liège"));
+            googleMap.addMarker(new MarkerOptions().position(kinepolisOostende).title("Kinepolis Oostende"));
+
             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(kinepolisBrussel, 8));
         }
     };
