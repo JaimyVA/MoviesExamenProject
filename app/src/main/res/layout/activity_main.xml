@@ -20,15 +20,13 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-
-    <include layout="@layout/content_main" />
+    <include layout="@layout/content_main"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigation_view"
@@ -44,5 +42,13 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/navigation_view"
+        app:layout_anchor="@+id/mainLayout"
+        app:layout_anchorGravity="center" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

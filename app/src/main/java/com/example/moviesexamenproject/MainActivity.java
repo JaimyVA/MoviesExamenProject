@@ -4,12 +4,18 @@ import android.os.Bundle;
 
 import com.bumptech.glide.Glide;
 import com.example.moviesexamenproject.model.NewReleases;
+import com.example.moviesexamenproject.ui.fragments.FirstFragment;
+import com.example.moviesexamenproject.ui.fragments.MapsFragment;
+import com.example.moviesexamenproject.ui.fragments.SecondFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -40,8 +46,35 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+
+        BottomNavigationView bottomNav = findViewById(R.id.navigation_view);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
     }
 
+    //TODO
+    //BUG TO FIX - When opening Movie details (SecondFragment) and using bottom nav to go to maps, top nav back button appears and hides again when clicked
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Fragment selectedFragment = null;
+
+            switch (item.getItemId()) {
+                case R.id.nav_movies:
+                    selectedFragment = new SecondFragment();
+                    break;
+
+                case R.id.nav_maps:
+                    selectedFragment = new MapsFragment();
+                    break;
+            }
+
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.mainLayout, selectedFragment)
+                    .commit();
+
+            return true;
+        }
+    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
