@@ -54,7 +54,7 @@ public class SecondFragment extends Fragment {
 
             titleTV.setText(passedMovie.getOriginal_title());
             bodyTV.setText(passedMovie.getOverview());
-            releasedateTV.setText("Release date: " + passedMovie.getRelease_date());
+            releasedateTV.setText(passedMovie.getRelease_date());
 
 
             Glide.with(this)
