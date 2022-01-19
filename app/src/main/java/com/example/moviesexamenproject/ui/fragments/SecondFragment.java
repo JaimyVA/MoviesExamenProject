@@ -49,10 +49,13 @@ public class SecondFragment extends Fragment {
         if(passedMovie != null){
             TextView titleTV = view.findViewById(R.id.tvTitle2);
             TextView bodyTV = view.findViewById(R.id.tvBody2);
+            TextView releasedateTV = view.findViewById(R.id.tvReleaseDate);
             ImageView img = view.findViewById(R.id.movieImageView2);
 
             titleTV.setText(passedMovie.getOriginal_title());
             bodyTV.setText(passedMovie.getOverview());
+            releasedateTV.setText("Release date: " + passedMovie.getRelease_date());
+
 
             Glide.with(this)
                     .load("https://themoviedb.org/t/p/w500"+ passedMovie.getPoster_path())
