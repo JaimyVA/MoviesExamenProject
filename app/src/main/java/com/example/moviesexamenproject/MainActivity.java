@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
     //TODO
     //BUG TO FIX - When opening Movie details (SecondFragment) and using bottom nav to go to maps, top nav back button appears and hides again when clicked
+    //(Couldn't fix in time)
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
